@@ -41,33 +41,34 @@ public class ContaCorrenteTest  {
 		
 	}
 	
-	
-	//public void testANewCheckBookHasAZeroBallanceByDefault() {	
-	//	assertEquals(0, conta.saldo());
-	//}
+	@Test
+	public void testANewCheckBookHasAZeroBallanceByDefault() {	
+		assertEquals(0, conta.saldo());
+	}
 	
 	/*
 	 * Para fazer o teste anterior passar vc precisa apenas que 
 	 * o retorno do get saldo seja ZERO. se voce implementou mais do que isso delete.
 	 */
 	
-//	public void testSingleDepositoIncreasesBalance() {
-//		conta.creditar(new Deposito("2009-10-12", 10000));
-//		
-//		assertEquals(10000, conta.saldo());
-//	}
+	@Test
+	public void testSingleDepositoIncreasesBalance() {
+		conta.creditar(new Deposito("2009-10-12", 10000));
+		
+		assertEquals(10000, conta.saldo());
+	}
 	
 	/*
 	 * Para o teste anterior passar vc precisou criar uma variavel para armazenar o saldo (do ingles: balence)
 	 */
+	@Test	
+	public void testMultipleDepositos() {
+		conta.creditar(new Deposito("2009-10-12", 100));
+		conta.creditar(new Deposito("2009-10-13", 200));
+		conta.creditar(new Deposito("2009-10-14", 300));
 		
-//	public void testMultipleDepositos() {
-//		conta.creditar(new Deposito("2009-10-12", 100));
-//		conta.creditar(new Deposito("2009-10-13", 200));
-//		conta.creditar(new Deposito("2009-10-14", 300));
-//		
-//		assertEquals(600, conta.saldo());
-//	}
+		assertEquals(600, conta.saldo());
+	}
 	
 	/*
 	 * Para o teste anterior passar vc deve ser capaz de somar cada um dos depositos ao saldo.
@@ -77,11 +78,12 @@ public class ContaCorrenteTest  {
 	 * Para o proximo teste passar vc precisará de um novo construtor.
 	 */
 	
-//	public void testCreatecontaWithInitialBalance() {
-//		ContaCorrente conta = new ContaCorrente(10000);
-//
-//		assertEquals(10000, conta.saldo());
-//	}
+	@Test
+	public void testCreatecontaWithInitialBalance() {
+		ContaCorrente conta = new ContaCorrente(10000);
+
+		assertEquals(10000, conta.saldo());
+	}
 	
 	/*
 	 * Para o proximo teste passar você precisará guardar uma informacao a mais:
@@ -92,35 +94,36 @@ public class ContaCorrenteTest  {
 	 * farao com que vc precise deixar de usar este valor hard coded.
 	 * 
 	 */
-
-//	public void testExtrato() {
-//		String extrato_esperado = 
-//			"Conta de James Grenning\n" +
-//			"Saldo Inicial $0\n" +
-//			"Saldo Final $0\n" +
-//			"Nenhuma trasacao realizada\n";
-//		
-//		String extrato_real = conta.extrato();
-//		
-//		assertEquals(extrato_esperado, extrato_real);
-//	}
+	@Test
+	public void testExtrato() {
+		conta = new ContaCorrente ("James Grenning");
+		String extrato_esperado = 
+			"Conta de James Grenning\n" +
+			"Saldo Inicial $0\n" +
+			"Saldo Final $0\n" +
+			"Nenhuma trasacao realizada\n";
+		
+		String extrato_real = conta.extrato();
+		
+		assertEquals(extrato_esperado, extrato_real);
+	}
 	
 	/*
 	* Para este teste vc precisará de um nome para o dono da conta.
 	*/
-	
-//	public void testProduceextratoWithDifferentHolder() {
-//		ContaCorrente conta = new ContaCorrente("Your Name");
-//		String expected = 
-//	"Conta de Your Name\n" +
-//	"Saldo Inicial $0\n" +
-//	"Saldo Final $0\n" +
-//	"Nenhuma trasacao realizada\n";
-//		
-//		String extrato = conta.extrato();
-//		
-//		assertEquals(expected, extrato);
-//	}
+	@Test
+	public void testProduceextratoWithDifferentHolder() {
+		ContaCorrente conta = new ContaCorrente("Your Name");
+		String expected = 
+	"Conta de Your Name\n" +
+	"Saldo Inicial $0\n" +
+	"Saldo Final $0\n" +
+	"Nenhuma trasacao realizada\n";
+		
+		String extrato = conta.extrato();
+		
+		assertEquals(expected, extrato);
+	}
 	
 	/*
 	 * Neste proximo teste vc deve alterar o saldo que estava hard coded.
