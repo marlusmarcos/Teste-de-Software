@@ -5,6 +5,11 @@ public class Deposito {
 	String data = "Undefined";
 	int valor = -1;
 	
+	
+	public Deposito() {
+		super();
+	}
+
 	public Deposito(String data, int valor) {
 		this.data = data;
 		this.valor = valor;

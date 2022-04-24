@@ -96,9 +96,9 @@ public class ContaCorrenteTest  {
 	 */
 	@Test
 	public void testExtrato() {
-		conta = new ContaCorrente ("James Grenning");
+		conta = new ContaCorrente ("James");
 		String extrato_esperado = 
-			"Conta de James Grenning\n" +
+			"Conta de James\n" +
 			"Saldo Inicial $0\n" +
 			"Saldo Final $0\n" +
 			"Nenhuma trasacao realizada\n";
@@ -129,17 +129,18 @@ public class ContaCorrenteTest  {
 	 * Neste proximo teste vc deve alterar o saldo que estava hard coded.
 	 */
 	
-//	public void testProduceextratoWithDifferentStartigBalancen() {
-//		ContaCorrente conta = new ContaCorrente("Your Name", 10000);
-//		String expected = 
-//			"Conta de Your Name\n" +
-//			"Saldo Inicial $10000\n" +
-//			"Saldo Final $10000\n" +
-//			"Nenhuma trasacao realizada\n";
-//		String extrato = conta.extrato();
-//		
-//		assertEquals(expected, extrato);
-//	}
+	@Test
+	public void testProduceextratoWithDifferentStartigBalancen() {
+		ContaCorrente conta = new ContaCorrente("Your Name", 10000);
+		String expected = 
+			"Conta de Your Name\n" +
+			"Saldo Inicial $10000\n" +
+			"Saldo Final $10000\n" +
+			"Nenhuma trasacao realizada\n";
+		String extrato = conta.extrato();
+		//System.out.println(extrato);
+		assertEquals(expected, extrato);
+	}
 	
 	/*
 	 * Até agora só tinhamos que armazenar o historico do saldo,
@@ -147,19 +148,21 @@ public class ContaCorrenteTest  {
 	 * deposito e saque. Neste teste vc vai realizar um deposito e Precisa armazenar esta informação no extrato.
 	 */
 	
-//	public void testProduceextratoWithOneDeposito() {
-//			String expected = 
-//				"Conta de James Grenning\n" +
-//				"Saldo Inicial $0\n" +
-//				"Saldo Final $10000\n" +
-//				"2015-03-13\tDeposito\t$10000\n";
-//			
-//		conta.creditar(new Deposito("2015-03-13", 10000));
-//		
-//		String extrato = conta.extrato();
-//		
-//		assertEquals(expected, extrato);
-//	}
+	@Test
+	public void testProduceextratoWithOneDeposito() {
+		//ContaCorrente conta = new ContaCorrente();
+			String expected = 
+				"Conta de James Grenning\n" +
+				"Saldo Inicial $0\n" +
+				"Saldo Final $10000\n" +
+				"2015-03-13\tDeposito\t$10000\n";
+			
+		System.out.println(conta.creditar(new Deposito("2015-03-13", 10000)));
+		
+		String extrato = conta.extrato();
+		System.out.println(extrato);
+		assertEquals(expected, extrato);
+	}
 	
 	/*
 	 * Note que esta abordagem de desenvolvimento faz com que vc 
