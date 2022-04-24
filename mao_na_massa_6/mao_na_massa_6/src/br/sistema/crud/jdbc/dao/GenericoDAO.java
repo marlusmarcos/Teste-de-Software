@@ -6,7 +6,7 @@ import br.sistema.crud.jdbc.exception.PersistenciaExcpetion;
 
 public interface GenericoDAO<T> {
 	
-	void inserir(T objc) throws PersistenciaExcpetion;
+	T inserir(T objc) throws PersistenciaExcpetion;
 	void atualizar(T objc)throws PersistenciaExcpetion;
 	
 	void deletar(Integer idPessoa)throws PersistenciaExcpetion;

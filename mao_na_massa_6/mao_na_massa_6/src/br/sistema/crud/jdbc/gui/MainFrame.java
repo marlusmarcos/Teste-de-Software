@@ -360,7 +360,7 @@ public class MainFrame extends javax.swing.JFrame {
 						pessoaBO.validaDtNasc(nasc);
 						
 						pessoaDTO.setNome(nome);
-						pessoaDTO.setCpf(Long.parseLong(cpf));
+						//pessoaDTO.setCpf(Long.parseLong(cpf));
 						
 						pessoaDTO.setDtNascimento(dateFormat.parse(nasc));
 						char sexo = rbtMasculino.isSelected() ? 'M' : 'F';
@@ -372,7 +372,7 @@ public class MainFrame extends javax.swing.JFrame {
 						enderecoDTO.setCidade(txtCidade.getText());
 						enderecoDTO.setNumero(txtNumero.getText().equals("") ? null : Long.parseLong(txtNumero.getText()));
 						
-						// Valida os dados do endereço
+						// Valida os dados do endereï¿½o
 						pessoaBO.validaEndereco(enderecoDTO);
 						
 						UfBO ufBO = new UfBO();
@@ -405,7 +405,7 @@ public class MainFrame extends javax.swing.JFrame {
 							tableListConsultaModel = 
 									new DefaultTableModel(
 											lista,
-											new String[] { "Id", "Nome", "CPF", "Endereço", "Sexo", "Dt. Nasc." });
+											new String[] { "Id", "Nome", "CPF", "Endereï¿½o", "Sexo", "Dt. Nasc." });
 							tableListConsulta.setModel(tableListConsultaModel);
 							tableListConsulta.repaint();
 							
@@ -663,7 +663,7 @@ public class MainFrame extends javax.swing.JFrame {
 				tableListConsultaModel = 
 						new DefaultTableModel(
 								lista,
-								new String[] { "Id", "Nome", "CPF", "Endereço", "Sexo", "Dt. Nasc." });
+								new String[] { "Id", "Nome", "CPF", "Endereï¿½o", "Sexo", "Dt. Nasc." });
 				tableListConsulta.setModel(tableListConsultaModel);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -773,7 +773,7 @@ public class MainFrame extends javax.swing.JFrame {
 			panelUpdate.setBackground(Color.gray);
 			GroupLayout panelUpdateLayout = new GroupLayout((JComponent)panelUpdate);
 			panelUpdate.setLayout(panelUpdateLayout);
-			panelUpdate.setBorder(BorderFactory.createTitledBorder("Edição de Pessoa"));
+			panelUpdate.setBorder(BorderFactory.createTitledBorder("Ediï¿½ï¿½o de Pessoa"));
 			panelUpdateLayout.setHorizontalGroup(panelUpdateLayout.createSequentialGroup()
 				.addContainerGap()
 				.addGroup(panelUpdateLayout.createParallelGroup()
@@ -936,7 +936,7 @@ public class MainFrame extends javax.swing.JFrame {
 						pessoaBO.validaDtNasc(nasc);
 						
 						pessoaDTO.setNome(nome);
-						pessoaDTO.setCpf(Long.parseLong(cpf));
+						//pessoaDTO.setCpf(Long.parseLong(cpf));
 						
 						pessoaDTO.setDtNascimento(dateFormat.parse(nasc));
 						char sexo = rbtMascUpdate.isSelected() ? 'M' : 'F';
@@ -949,7 +949,7 @@ public class MainFrame extends javax.swing.JFrame {
 						enderecoDTO.setCidade(txtCidadeUpdate.getText());
 						enderecoDTO.setNumero(txtNumeroUpdate.getText().equals("") ? null : Long.parseLong(txtNumeroUpdate.getText()));
 						
-						// Valida os dados do endereço
+						// Valida os dados do endereï¿½o
 						pessoaBO.validaEndereco(enderecoDTO);
 						
 						UfDTO ufDTO = new UfDTO();
@@ -1083,7 +1083,7 @@ public class MainFrame extends javax.swing.JFrame {
 			panelEnderecoCadastro.setBackground(Color.gray);
 			GroupLayout panelEnderecoCadastroLayout = new GroupLayout((JComponent)panelEnderecoCadastro);
 			panelEnderecoCadastro.setLayout(panelEnderecoCadastroLayout);
-			panelEnderecoCadastro.setBorder(BorderFactory.createTitledBorder("Endereço"));
+			panelEnderecoCadastro.setBorder(BorderFactory.createTitledBorder("Endereï¿½o"));
 			panelEnderecoCadastroLayout.setHorizontalGroup(panelEnderecoCadastroLayout.createSequentialGroup()
 				.addContainerGap()
 				.addGroup(panelEnderecoCadastroLayout.createParallelGroup()
@@ -1193,7 +1193,7 @@ public class MainFrame extends javax.swing.JFrame {
 	private JLabel getJLabel3x() {
 		if(lblNumero == null) {
 			lblNumero = new JLabel();
-			lblNumero.setText("Número:");
+			lblNumero.setText("Nï¿½mero:");
 		}
 		return lblNumero;
 	}
@@ -1252,7 +1252,7 @@ public class MainFrame extends javax.swing.JFrame {
 			panelEnderecoUpdate.setBackground(Color.gray);
 			GroupLayout panelEnderecoUpdateLayout = new GroupLayout((JComponent)panelEnderecoUpdate);
 			panelEnderecoUpdate.setLayout(panelEnderecoUpdateLayout);
-			panelEnderecoUpdate.setBorder(BorderFactory.createTitledBorder("Endereço"));
+			panelEnderecoUpdate.setBorder(BorderFactory.createTitledBorder("Endereï¿½o"));
 			panelEnderecoUpdateLayout.setHorizontalGroup(panelEnderecoUpdateLayout.createSequentialGroup()
 				.addContainerGap()
 				.addGroup(panelEnderecoUpdateLayout.createParallelGroup()
@@ -1399,7 +1399,7 @@ public class MainFrame extends javax.swing.JFrame {
 	private JLabel getJLabel3() {
 		if(lblNumeroUpdate == null) {
 			lblNumeroUpdate = new JLabel();
-			lblNumeroUpdate.setText("Número:");
+			lblNumeroUpdate.setText("Nï¿½mero:");
 		}
 		return lblNumeroUpdate;
 	}

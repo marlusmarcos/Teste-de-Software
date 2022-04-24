@@ -15,9 +15,10 @@ public class PessoaBO {
 
 	private DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 	
-	public void cadastrar(PessoaDTO pessoaDTO, PessoaDAO pessoaDAO) throws NegocioException {
+	public PessoaDTO cadastrar(PessoaDTO pessoaDTO, PessoaDAO pessoaDAO) throws NegocioException {
 		try {
 			pessoaDAO.inserir(pessoaDTO);
+			return pessoaDTO;
 		} catch(Exception exception) {
 			exception.printStackTrace();
 			throw new NegocioException(exception.getMessage());
@@ -57,10 +58,10 @@ public class PessoaBO {
 		boolean ehValido = true;
 		if (nome == null || nome.equals("")) {
 			ehValido = false;
-			throw new ValidacaoException("Campo nome é obrigatório!");
+			throw new ValidacaoException("Campo nome ï¿½ obrigatï¿½rio!");
 		} else if (nome.length() > 30) {
 			ehValido = false;
-			throw new ValidacaoException("Campo nome comporta no máximo 30 chars!");
+			throw new ValidacaoException("Campo nome comporta no mï¿½ximo 30 chars!");
 		}
 		return ehValido;
 	}
@@ -69,16 +70,16 @@ public class PessoaBO {
 		boolean ehValido = true;
 		if (cpf == null || cpf.equals("")) {
 			ehValido = false;
-			throw new ValidacaoException("Campo CPF é obrigatório!");
+			throw new ValidacaoException("Campo CPF ï¿½ obrigatï¿½rio!");
 		} else if (cpf.length() != 11) {
 			ehValido = false;
-			throw new ValidacaoException("Campo CPF deve ter 11 dígitos!");
+			throw new ValidacaoException("Campo CPF deve ter 11 dï¿½gitos!");
 		} else {
 			char[] digitos = cpf.toCharArray();
 			for (char digito : digitos) {
 				if (!Character.isDigit(digito)) {
 					ehValido = false;
-					throw new ValidacaoException("Campo CPF é somente numérico!");
+					throw new ValidacaoException("Campo CPF ï¿½ somente numï¿½rico!");
 				}
 			}
 		}
@@ -89,7 +90,7 @@ public class PessoaBO {
 		boolean ehValido = true;
 		if (enderecoDTO.getLogadouro() == null || enderecoDTO.getLogadouro().equals("")) {
 			ehValido = false;
-			throw new ValidacaoException("Campo Logradouro é obrigatório!");
+			throw new ValidacaoException("Campo Logradouro ï¿½ obrigatï¿½rio!");
 		} else if (enderecoDTO.getBairro() == null || enderecoDTO.getBairro().equals("")) {
 			ehValido = false;
 			throw new ValidacaoException("Bairro Obrigatorio");
@@ -109,13 +110,15 @@ public class PessoaBO {
 		boolean ehValido = true;
 		if (dtNasc == null || dtNasc.equals("")) {
 			ehValido = false;
-			throw new ValidacaoException("Campo Dt. Nasc. é obrigatório!");
+			throw new ValidacaoException("Campo Dt. Nasc. ï¿½ obrigatï¿½rio!");
 		} else {
-			ehValido = false;
+			ehValido = true;
 			try {
 				dateFormat.parse(dtNasc);
 			} catch (ParseException e) {
-				throw new ValidacaoException("Formato inválido de data!");
+				ehValido = false;
+				throw new ValidacaoException("Formato invï¿½lido de data!");
+				
 			}
 		}
 		return ehValido;

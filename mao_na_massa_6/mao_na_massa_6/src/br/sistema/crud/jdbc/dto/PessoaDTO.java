@@ -6,7 +6,7 @@ public class PessoaDTO {
 	
 	private Integer idPessoa;
 	private String nome;
-	private Long cpf;
+	private String cpf;
 	//private String endereco;
 	private Character sexo;
 	private Date dtNascimento;
@@ -25,10 +25,10 @@ public class PessoaDTO {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Long getCpf() {
-		return cpf;
+	public String getCpf() {
+		return  cpf;
 	}
-	public void setCpf(Long cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	//public String getEndereco() {

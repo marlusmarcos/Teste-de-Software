@@ -22,11 +22,12 @@ public class PessoaDAO implements GenericoDAO<PessoaDTO> {
 	}
 
 	@Override
-	public void inserir(PessoaDTO pessoaDTO) throws PersistenciaExcpetion {
+	public PessoaDTO inserir(PessoaDTO pessoaDTO) throws PersistenciaExcpetion {
 		try {
 			pessoaDTO.setIdPessoa(id_pessoa);
 			this.id_pessoa++;
 			banco.add(pessoaDTO);
+			return pessoaDTO;
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new PersistenciaExcpetion(e.getMessage(), e);
