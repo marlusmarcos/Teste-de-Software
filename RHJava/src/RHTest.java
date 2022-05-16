@@ -38,8 +38,19 @@ public class RHTest {
 
 
 	@Test
-	public void test() {
+	public void test() throws Exception {
 		assertEquals(esperado, rh.recomendacaoCandidato(entrada));
+	}
+	
+	@Test (expected = Exception.class)
+	public void exceptionTest () throws Exception {
+		assertEquals("erro",rh.recomendacaoCandidato(-1));
+		assertEquals("",rh.recomendacaoCandidato(18));
+		assertEquals("",rh.recomendacaoCandidato(16));
+		assertEquals("",rh.recomendacaoCandidato(55));
+		assertEquals("",rh.recomendacaoCandidato(99));
+
+
 	}
 
 }
