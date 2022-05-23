@@ -44,8 +44,8 @@ public class CalculoImpostoRenda {
 	       return valor*impostotot;
 	    }
 	
-	
-	public static void main(String[] args) {
-		calculaImposto(15000);
-	}
+	//
+//	public static void main(String[] args) {
+		
+	//}
 }

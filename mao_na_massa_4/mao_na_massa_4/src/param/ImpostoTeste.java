@@ -25,7 +25,7 @@ public class ImpostoTeste {
 	public double entrada;
 	public double esperado;
 	
-	
+	CalculoImpostoRenda calc = new CalculoImpostoRenda();
 
 	public ImpostoTeste(double entrada, double esperado) {
 		super();
@@ -36,14 +36,14 @@ public class ImpostoTeste {
 	@Parameters
 	public static  Object [][] data () {
 		return new Object [] []	{
-			{100,0.0}, {1000, 0.0}, {1500,150.0}, {15000, 3000.0}
+			{100,0.0}, {1000, 0.0}, {1500,150.0}, {15000, 3000.0}, {10000,1500.0}
 		};					
 	}
 
 
 	@Test
 	public void testEsperado() {
-		assertEquals(esperado, CalculoImpostoRenda.calculaImposto(entrada), 0.00);
+		assertEquals(esperado, calc.calculaImposto(entrada), 0.00);
 	}
 
 }
