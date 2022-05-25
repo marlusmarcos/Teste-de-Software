@@ -16,6 +16,10 @@ public class GameSeller {
 	lançar ArgumentoInvalidoException */
 	public double calculaPreco (int tipoJogo, double valor) throws ArgumentoInvalidoException
 	{
+		if (valor < 0 || tipoJogo > 3 && tipoJogo < 1) {
+			throw new ArgumentoInvalidoException("erro entrada");
+		} else {
+		
 		if (tipoJogo == 1 && valor >= 0.0) {
 			return valor < 200? valor + 30 : valor; 
 		}
@@ -23,6 +27,7 @@ public class GameSeller {
 			return valor; 
 		} else {
 			return valor <= 100? valor+30 : valor +20;
+		}
 		}
 	}
 }
